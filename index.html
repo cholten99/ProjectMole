@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Project Mole</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="myJavascript.js"></script>
+    <link rel="stylesheet" type="text/css" href="myCSS.css">
+
+  </head>
+  <body>
+    <div id="main_outer">
+      <div id="main_left">
+        Project Mole!<br/>
+        Common Data Catalogue of fields stored for an IDA identified for a user - pick from a list to add with pre-fill or add a new one<p/>
+        <div id="element_box">Initialise!</div>
+      </div>
+      <div id="main_right">
+        <div id="right_header_text">
+          Project Mole!<p/>
+          REDO ALL THE CSS IN BOOTSTRAP!!!<p/>
+        </div>
+        <div id="project_name_textfield">
+          Project Name: <input type="text" id="project_name"><br>
+        </div>
+        <div id="toggle_button_div">
+          <button class="button_class" id="toggle_button">Toggle</button>
+        </div>
+        <div id="load_button_div">
+          <button class="button_class" id="load_button">Load</button>
+        </div>
+        <div id="save_button_div">
+          <button class="button_class" id="save_button">Save</button>
+        </div>
+        <div id="autosave_checkbox_div">        
+          <input type="checkbox" id="autosave_checkbox">
+          <label for="autosave_checkbox">Autosave</label>
+        </div>
+        <div id="widget_dropbox_div">
+          <select class="dropbox_class" id="widget_dropbox">
+            <option value="TextWidget">Text</option>
+            <option value="TextBoxWidget">Textbox</option>
+            <option value="DropboxWidget">Dropbox</option>
+          </select>
+        </div>
+        <div id="add_widget_button">
+          <button class="button_class" id="add_widget_button">Add Widget</button>
+        </div>
+        <div id="save_text">Saving</div>
+      </div>
+    </div>
+  </body>
+</html>

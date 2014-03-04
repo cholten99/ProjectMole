@@ -1,0 +1,62 @@
+body, html {
+  height: 100%;
+}
+
+#main_outer {
+  border-style: solid;
+  border-color: blue;
+  height: 100%;
+}
+
+#main_left {
+  float: left;
+  width: 70%;
+  height: 100%;
+  border-style: solid;
+  border-color: green;
+}
+
+#main_right {
+  border-style: solid;
+  border-color: light_blue;
+  height: 100%;
+}
+
+#right_header_text {
+  border-style: solid;
+  border-color: purple;
+  text-align: center;
+}
+
+#toggle_button {
+  width: 80%
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-color: yellow;
+}
+
+.button_class {
+  width: 100px;
+}
+
+.dropbox_class {
+  width: 100px;
+}
+
+#element_box {
+  border-style: solid;
+  border-color: red;
+  height: 85%;
+  overflow-y: auto;
+}
+
+.widget_elements {
+  border-style: solid;
+  border-color: black;
+}
+
+#save_text {
+  color: red;
+  display:none;
+}
