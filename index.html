@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+  
+    <script>
+      // onLoad function
+      $(function() {
+        // Connect to Firebase
+        FirebaseRef = new Firebase("https://blazing-fire-4598.firebaseio.com");
+        
+        testRef = FirebaseRef.child('test');
+        testRef.on('value', function(snapshot) {
+          location.reload(true);
+        });
+        
+        // Update the time
+        var unixtime = new Date().getTime();
+        var newDate = new Date();
+        newDate.setTime(unixtime*1000);
+        dateString = newDate.toUTCString();
+        $("#theTime").val(dateString);
+      });
+    </script>
+  
+  </head>
+  <body>
+    <h1>Nothing</h1>
+    <h3>But some example text here</h3>
+    <h4>Oh and the time the page was loaded : <div id="theTime>"</div></h4>
+  </body>
+</html>
+  
