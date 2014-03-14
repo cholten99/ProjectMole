@@ -41,20 +41,17 @@
         FirebaseRef = new Firebase("https://blazing-fire-4598.firebaseio.com");        
         testRef = FirebaseRef.child('test');
 
-        testRef.on('value', function(snapshot) {
-          var dateTest = GetCookie("DateTest");
-console.log(dateTest);
-          var firebaseTest = snapshot.val();
-console.log(firebaseTest);
+        // Get the cookie value
+        var dateTest = GetCookie("dateTest");
+        console.log(dateTest);
 
-          if (dateTest == null) {
-            SetCookie("DateTest", firebaseTest, 1);
-          } else if (firebaseTest > dateTest) {
-            SetCookie("DateTest", firebaseTest, 1);
+/*
+        testRef.on('value', function(snapshot) {
+          if (snapshot.val() > cookieValue) {          
             location.reload(true);
           }
-
         });
+*/
         
         // Update the time
         var unixtime = new Date().getTime();
