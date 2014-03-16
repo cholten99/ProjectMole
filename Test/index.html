@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+    <script src="../loadOnTrigger.js"></script>
+  
+    <script>
+      // onLoad function
+      $(function() {
+        initialiseTimeTrigger("renderTrigger");
+
+        // Update the time
+        var unixtime = new Date().getTime();
+        var date = new Date();
+        var now = date.toUTCString();
+        $("#theTime").html("Oh and the time the page was loaded : " + now);
+
+      });
+
+      function triggerUpdated() {
+        location.reload(true);
+      }
+
+    </script>
+  
+  </head>
+  <body>
+    <h1>Nothing</h1>
+    <h3>But some example text here</h3>
+    <h4><div id="theTime"></div></h4>
+  </body>
+</html>
+  

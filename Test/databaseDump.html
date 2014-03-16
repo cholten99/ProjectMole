@@ -1,0 +1,51 @@
+<html>
+  <head>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="//cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+
+    <!-- Firebase triggered reload -->
+    <script src="../loadOnTrigger.js"></script>
+  
+    <!-- databaseDump -->
+    <script src="../databaseDump.js"></script>
+
+    <script>
+      // onLoad function
+      $(function() {
+        // Register for trigger change in Firebase for this project
+        initialiseTimeTrigger("databaseTrigger");
+
+        // Update the table from Firebase
+        updateTable();
+         
+      });
+
+      function triggerUpdated() {
+        location.reload(true);
+      }
+    </script>
+  
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="page-header">
+        <h2>Database dump page</h2>
+      </div>
+
+      <div id="theTable"></div>
+
+    </div>
+
+  </body>
+</html>
+  

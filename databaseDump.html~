@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+    <script src="loadOnTrigger.js"></script>
+  
+    <script>
+      // onLoad function
+      $(function() {
+        initialiseTimeTrigger("databaseTrigger");
+
+        // Update the number
+        var theNumber = Math.round(Math.random() * 1000);
+        $("#theNumber").html("Oh and the random number is : " + theNumber);
+
+      });
+
+      function triggerUpdated() {
+        location.reload(true);
+      }
+
+    </script>
+  
+  </head>
+  <body>
+    <h1>Nothing</h1>
+    <h3>But some example text here</h3>
+    <h4><div id="theNumber"></div></h4>
+  </body>
+</html>
+  
