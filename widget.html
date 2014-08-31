@@ -1,20 +1,94 @@
 <html>
   <head>
-    <title></title>
+    <title>Create and edit widgets</title>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="myFirebase.js"></script>
+    <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
 
     <script>
 
-    $( document ).ready(function() {
+      // Global variables
+      var FirebaseRef;
+      var CurrentlyEditing;
+      var IsNew;
 
-    });
+      $( document ).ready(function() {
+
+        // Connect to Firebase
+        FirebaseRef = new Firebase("https://blazing-fire-4598.firebaseio.com/ProjectMole/");
+
+        // Get the names of the existing widgets and update select
+        widgetsRef = FirebaseRef.child('widgets');
+        widgetsRef.once('value', function(snapshot) {
+          widgetData = snapshot.val();
+
+          if (widgetData == null) {
+            $('#widgets_select').prop( "disabled", true );
+          }
+
+          for (widgetName in widgetData) {
+            $('#widgets_select')
+            .append($("<option></option>")
+            .attr("value", widgetName)
+            .text(widgetName)); 
+          }
+
+        });
+
+        // Handle the buttons
+        $("#load_button").click(function() {
+          $('#currently_editing').html($('#widgets_select').val());
+        });
+
+// Load - load in data, check CurrentlyEditing
+// New - check name isn't default or used before, set CurrentlyEditing and currently_editing
+// Delete - check CurrentlyEditing (can't delete on first load), reset (inc CE), remove from Firebase
+// Save - save to Firebase (might have to handle new / update)
+
+
+      });
 
     </script>
   </head>
 
   <body>
+  <div id="page_header">
+    <h2>Wigdet page</h2><p/>
+    Currently editing: <b><span id="currently_editing">N/A</span></b> | 
+    <button id="new_button">New widget</button> | 
+    Name: <input value="New widget name" onfocus="if (this.value=='New widget name') this.value = ''" /> | 
+    Pick existing:
+    <select id="widgets_select"></select><button id="load_button">Load</button> | 
+    <button id="delete_button">Delete</button> | 
+    <button id="save_button">Save</button>
+  </div>
+
+  <hr/>
+
+  <div id="page_main">
+    Internal HTML:<br/>
+    <textarea rows="4" cols="100" onfocus="if (this.value=='Internal HTML') this.value = ''">Internal HTML</textarea>
+    <p/>
+    Internal validation:<br/>
+    <textarea rows="4" cols="100" onfocus="if (this.value=='Internal validation') this.value = ''">Internal validation</textarea>
+    <p/>
+    External HTML:<br/>
+    <textarea rows="4" cols="100" onfocus="if (this.value=='External HTML') this.value = ''">External HTML</textarea>
+    <p/>
+    External CSS:<br/>
+    <textarea rows="4" cols="100" onfocus="if (this.value=='External CSS') this.value = ''">External CSS</textarea>
+    <p/>
+    External CSS:<br/>
+    <textarea rows="4" cols="100" onfocus="if (this.value=='External CSS') this.value = ''">External CSS</textarea>
+    <p/>
+    External validation regex:<br/>
+    <textarea rows="1" cols="100" onfocus="if (this.value=='External validation regex') this.value = ''">External validation regex</textarea>
+    <p/>
+    External validation error message:<br/>
+    <textarea rows="1" cols="100" onfocus="if (this.value=='External validation error message') this.value = ''">External validation error message</textarea>
+    <p/>
+  </div>
+
   </body>
 
 </html>
